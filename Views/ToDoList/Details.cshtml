@@ -1,0 +1,42 @@
+﻿@model ToDoList.Models.ToDoViewModel
+
+@{ ViewData["Title"] = "Details";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Details of To DO list</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Completed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Completed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AvailableQuantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AvailableQuantity)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TaskId" class="btn btn-primary"> <i class="fa fa-edit"></i> Edit </a>
+    <a asp-action="Index" class="btn btn-info"> <i class="fa fa-arrow-left"></i> Go back </a>
+
+</div>

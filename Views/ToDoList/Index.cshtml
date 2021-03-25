@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ToDoList.Models.ToDoViewModel>
+
+@{ ViewData["Title"] = "To Do List";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+<p>
+    <a asp-action="Create" class="btn btn-info"> <i class="fa fa-plus" aria-hidden="true"> </i>  Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Completed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>Edit</th>
+            <th>Details</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Completed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <th>
+                <input type="checkbox" id="scales" name="scales"
+                       checked>
+
+            </th>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TaskId"> <i class="fa fa-pencil-alt" aria-hidden="true"></i> </a>
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.TaskId"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.TaskId"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
+            </td>
+        </tr>}
+    </tbody>
+</table>
